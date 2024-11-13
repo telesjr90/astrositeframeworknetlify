@@ -1,10 +1,9 @@
-# dependências
-node_modules/
-.DS_Store
+# build output
 dist/
-.env
-.env.*
-!.env.example
+.output/
+
+# dependencies
+node_modules/
 
 # logs
 npm-debug.log*
@@ -12,8 +11,12 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# astro
-.astro/
+# environment variables
+.env
+.env.production
 
-# tailwind
-tailwind.config.mjs
+# macOS-specific files
+.DS_Store
+
+# Astro
+.astro/
