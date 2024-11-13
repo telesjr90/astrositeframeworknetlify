@@ -1,0 +1,53 @@
+---
+const menuItems = [
+    { name: 'Home', url: '/' },
+    { name: 'About', url: '/about' },
+    { name: 'Blog', url: '/blog' },
+    {
+        name: 'Portfolio',
+        url: '/portfolio',
+        submenu: [
+            { name: 'Writing Portfolio', url: '/portfolio/writing' },
+            { name: 'Video Portfolio', url: '/portfolio/video' }
+        ]
+    },
+    { name: 'Contact', url: '/contact' }
+];
+---
+
+<nav class="flex flex-wrap items-center justify-between p-6 bg-white shadow-lg">
+    <div class="flex items-center flex-shrink-0 mr-6">
+        <a href="/" class="text-xl font-bold">Seu Logo</a>
+    </div>
+    
+    <!-- Menu Desktop -->
+    <div class="hidden w-full md:flex md:items-center md:w-auto">
+        <div class="text-sm md:flex-grow">
+            {menuItems.map((item) => (
+                <div class="relative group">
+                    <a
+                        href={item.url}
+                        class="block mt-4 mr-4 md:inline-block md:mt-0 hover:text-primary"
+                    >
+                        {item.name}
+                    </a>
+                    
+                    {item.submenu && (
+                        <div class="absolute hidden pt-1 group-hover:block">
+                            <div class="bg-white border rounded-lg shadow-lg">
+                                {item.submenu.map((subitem) => (
+                                    <a
+                                        href={subitem.url}
+                                        class="block px-4 py-2 hover:bg-gray-100"
+                                    >
+                                        {subitem.name}
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                </div>
+            ))}
+        </div>
+    </div>
+</nav>
